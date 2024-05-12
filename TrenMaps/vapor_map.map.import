@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://b0ilge3su14t6"
+path="res://.godot/imported/vapor_map.map-a4927b62c096309c7275e23a7e29dcab.tres"
+
+[deps]
+
+source_file="res://TrenMaps/vapor_map.map"
+dest_files=["res://.godot/imported/vapor_map.map-a4927b62c096309c7275e23a7e29dcab.tres"]
+
+[params]
+

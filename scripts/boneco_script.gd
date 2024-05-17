@@ -7,6 +7,7 @@ const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.5
 # const SENSIBILIDADE = 0.001
 const SENSIBILIDADE = 0.005
+const HIT_STAGGER = 8.0
 
 #bob variaveis
 const BOB_FREQ = 2.0
@@ -16,6 +17,9 @@ var t_bob = 0.0
 # fov variaveis
 # const BASE_FOV = 75.0
 # const FOV_CHANGE =1.5
+
+# signal
+signal player_hit
 
 # Obtém a gravidade das configurações do projeto para sincronização com os nós RigidBody.
 var gravity = 9.8
@@ -106,3 +110,9 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_cruz_hitbox_area_entered(area):
 	if area.is_in_group("inimigo"):
 		print("hit")
+
+
+func hit(dir):
+	emit_signal("player_hit")
+	velocity +=dir * HIT_STAGGER
+

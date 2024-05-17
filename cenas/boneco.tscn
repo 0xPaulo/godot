@@ -316,5 +316,5 @@ libraries = {
 }
 playback_default_blend_time = 0.1
 
-[connection signal="area_entered" from="head/Camera3D/arma/cruz_3d/cruz_hitbox" to="." method="_on_cruz_hitbox_area_entered"]
+[connection signal="child_entered_tree" from="head/Camera3D/arma/cruz_3d/cruz_hitbox" to="." method="_on_cruz_hitbox_child_entered_tree"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Minecraft Spider Monster
+* source:	https://sketchfab.com/3d-models/minecraft-spider-monster-0a00473e43944fd9b419dd8054d434b7
+* author:	Joshie Models BB (https://sketchfab.com/kats43434)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Minecraft Spider Monster" (https://sketchfab.com/3d-models/minecraft-spider-monster-0a00473e43944fd9b419dd8054d434b7) by Joshie Models BB (https://sketchfab.com/kats43434) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

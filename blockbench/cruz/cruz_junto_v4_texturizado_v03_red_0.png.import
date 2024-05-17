@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://barb6mku0rqp0"
+path.s3tc="res://.godot/imported/cruz_junto_v4_texturizado_v03_red_0.png-e1dc2dba74db8ac3de810c493cec29fe.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "a479c7da43e3d5c801abc2d5cdf75dc5"
+}
+
+[deps]
+
+source_file="res://blockbench/cruz/cruz_junto_v4_texturizado_v03_red_0.png"
+dest_files=["res://.godot/imported/cruz_junto_v4_texturizado_v03_red_0.png-e1dc2dba74db8ac3de810c493cec29fe.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

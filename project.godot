@@ -13,6 +13,7 @@ config_version=5
 config/name="godot_kings_field_5"
 run/main_scene="res://cenas/mundo1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]
@@ -23,6 +24,7 @@ window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
+window/max_fps=0
 
 [editor_plugins]
 

@@ -7,7 +7,7 @@ const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.5
 # const SENSIBILIDADE = 0.001
 const SENSIBILIDADE = 0.005
-const HIT_STAGGER = 8.0
+const HIT_STAGGER = 2.0
 
 #bob variaveis
 const BOB_FREQ = 2.0
@@ -68,11 +68,11 @@ func _physics_process(delta):
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 15.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 15.0)
 		else:
-			velocity.x = 0
-			velocity.z = 0
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
 			# Inercia 
 			# velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			# velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)

@@ -1,14 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://peud0b50nrjy"]
+[gd_scene load_steps=16 format=3 uid="uid://peud0b50nrjy"]
 
 [ext_resource type="Shader" path="res://shaders/new_shader2.gdshader" id="1_3lpg5"]
 [ext_resource type="Script" path="res://scripts/mundo1.gd" id="1_rch5p"]
 [ext_resource type="PackedScene" uid="uid://iyw0uueabgkb" path="res://cenas/map.tscn" id="2_5t76k"]
 [ext_resource type="PackedScene" uid="uid://cj4lwobjm0wcm" path="res://cenas/boneco.tscn" id="2_xyunn"]
 [ext_resource type="PackedScene" uid="uid://doadaqtgfi53h" path="res://cenas/aranha3.tscn" id="6_ynclv"]
-[ext_resource type="PackedScene" uid="uid://dfb7omson3yxk" path="res://blockbench/sket/lobisomen/source/model.gltf" id="8_40x46"]
-[ext_resource type="PackedScene" uid="uid://d2erpgawvidwn" path="res://blockbench/sket/retro-tv/source/model.gltf" id="9_6fys1"]
-[ext_resource type="PackedScene" uid="uid://bjyafn02ty2c6" path="res://blockbench/sket/peixe/source/model.gltf" id="14_ywgma"]
-[ext_resource type="PackedScene" uid="uid://dcspbtohvugfg" path="res://blockbench/sket/skeleton-drgaon/source/model.gltf" id="15_0gkxp"]
+[ext_resource type="PackedScene" uid="uid://dcg8tximnu2u0" path="res://cenas/inimigo_teste.tscn" id="8_prpka"]
 [ext_resource type="Shader" path="res://shaders/CRT.gdshader" id="18_8nt87"]
 [ext_resource type="PackedScene" uid="uid://dwgq47yoj2sr8" path="res://cenas/cena_cruz_texturized_completa.tscn" id="18_aqn0k"]
 
@@ -26,12 +23,12 @@ sky_energy_multiplier = 0.0
 ground_bottom_color = Color(0.430057, 0.430057, 0.430057, 1)
 ground_horizon_color = Color(0.608505, 0.624839, 0.648052, 1)
 
-[sub_resource type="Sky" id="Sky_48h4g"]
+[sub_resource type="Sky" id="Sky_cq6kl"]
 sky_material = SubResource("ProceduralSkyMaterial_cxiaf")
 
 [sub_resource type="Environment" id="Environment_82wrf"]
 background_mode = 1
-sky = SubResource("Sky_48h4g")
+sky = SubResource("Sky_cq6kl")
 fog_enabled = true
 fog_light_color = Color(0.410919, 0.490821, 1, 1)
 fog_sky_affect = 0.138
@@ -95,6 +92,7 @@ environment = SubResource("Environment_82wrf")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 48.3428, -4.73816)
+layers = 3
 light_color = Color(0.366588, 0.428132, 1, 1)
 light_energy = 4.626
 omni_range = 74.51
@@ -102,6 +100,7 @@ omni_attenuation = 6.54158e-05
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport/WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349566, 8.22077, 8.44435)
+layers = 3
 omni_range = 27.54
 
 [node name="cruz_texturizada" parent="SubViewportContainer/SubViewport" instance=ExtResource("18_aqn0k")]
@@ -149,32 +148,15 @@ mouse_filter = 2
 color = Color(0.619608, 0, 0, 0.0901961)
 
 [node name="inimigos" type="Node3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.695, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70108, -1.51735, 15.0641)
 
 [node name="aranha" parent="SubViewportContainer/SubViewport/inimigos" instance=ExtResource("6_ynclv")]
-transform = Transform3D(0.43337, 0, 0.24938, 0, 0.5, 0, -0.24938, 0, 0.43337, 4.68589, 1, 20.1651)
+transform = Transform3D(0.43337, 0, 0.24938, 0, 0.5, 0, -0.24938, 0, 0.43337, 0.082478, 1, 1.81479)
 player_path = NodePath("../../Boneco")
 
-[node name="aranha2" parent="SubViewportContainer/SubViewport/inimigos" instance=ExtResource("6_ynclv")]
-transform = Transform3D(0.496558, 0, -0.0585694, 0, 0.5, 0, 0.0585694, 0, 0.496558, 2.1409, 1, 27.2581)
-player_path = NodePath("../../Boneco")
-
-[node name="aranha3" parent="SubViewportContainer/SubViewport/inimigos" instance=ExtResource("6_ynclv")]
-transform = Transform3D(0.407498, 0, -0.289733, 0, 0.5, 0, 0.289733, 0, 0.407498, 0.138412, 1, 20.1651)
-player_path = NodePath("../../Boneco")
-
-[node name="inimigos2" type="Node3D" parent="."]
-
-[node name="lobo" parent="inimigos2" instance=ExtResource("8_40x46")]
-transform = Transform3D(2.72701, 0, -1.25037, 0, 3, 0, 1.25037, 0, 2.72701, 11.7347, 1.70894, 52.6485)
-
-[node name="tv" parent="inimigos2" instance=ExtResource("9_6fys1")]
-transform = Transform3D(0.2, 0, 0, 0, 0.199928, 0.00536798, 0, -0.00536798, 0.199928, 6.71866, 0.989258, 27.9178)
-
-[node name="pexe" parent="inimigos2" instance=ExtResource("14_ywgma")]
-transform = Transform3D(-0.0842342, 0, -0.996446, 0, 1, 0, 0.996446, 0, -0.0842342, -7.31866, -1.07717, 58.3916)
-
-[node name="dragao" parent="inimigos2" instance=ExtResource("15_0gkxp")]
-transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 6.96548, 43.4196, 14.6804)
+[node name="inimigo_teste" parent="." instance=ExtResource("8_prpka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6323, 2.45276, 19.4329)
 
 [connection signal="player_hit" from="SubViewportContainer/SubViewport/Boneco" to="." method="_on_boneco_player_hit"]
+
+[editable path="SubViewportContainer/SubViewport/Boneco"]

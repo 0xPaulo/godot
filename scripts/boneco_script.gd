@@ -27,11 +27,13 @@ var gravity = 9.8
 
 @onready var head = $head
 @onready var camera = $head/Camera3D
+@onready var armaCamera = $head/Camera3D/arma/cruz_3d/SubViewportContainer/SubViewport/armaCamera
 @onready var animacao_player = $AnimationPlayer
 @onready var cruz_hitbox = $head/Camera3D/arma/cruz_3d/cruz_hitbox
 
 
 func _process(_delta):
+	armaCamera.global_transform = camera.global_transform
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("ataque"):
@@ -73,9 +75,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-			# Inercia 
-			# velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			# velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)

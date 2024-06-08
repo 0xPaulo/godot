@@ -1351,6 +1351,7 @@ tracks/15/keys = {
 [sub_resource type="Animation" id="Animation_cuug5"]
 resource_name = "spider_idle"
 length = 2.0
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -1588,14 +1589,14 @@ xfade_time = 0.2
 advance_mode = 2
 advance_condition = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_umdfc"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uqd2s"]
 xfade_time = 0.2
 switch_mode = 2
 advance_mode = 2
 advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_umdfc"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5q2u7"]
 states/Start/position = Vector2(74.6667, 99.8519)
@@ -1603,7 +1604,7 @@ states/spider_attack/node = SubResource("AnimationNodeAnimation_gtt1i")
 states/spider_attack/position = Vector2(652, 99.3333)
 states/spider_walk/node = SubResource("AnimationNodeAnimation_8y121")
 states/spider_walk/position = Vector2(429.333, 106)
-transitions = ["spider_walk", "spider_attack", SubResource("AnimationNodeStateMachineTransition_qf4mk"), "Start", "spider_walk", SubResource("AnimationNodeStateMachineTransition_umdfc"), "spider_attack", "spider_walk", SubResource("AnimationNodeStateMachineTransition_uqd2s")]
+transitions = ["spider_walk", "spider_attack", SubResource("AnimationNodeStateMachineTransition_qf4mk"), "spider_attack", "spider_walk", SubResource("AnimationNodeStateMachineTransition_uqd2s"), "Start", "spider_walk", SubResource("AnimationNodeStateMachineTransition_umdfc")]
 
 [node name="Sketchfab_Scene" type="CharacterBody3D"]
 script = ExtResource("1_3po4d")
@@ -1619,10 +1620,10 @@ transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-1
 [node name="RootNode" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2"]
 
 [node name="bone" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode"]
-transform = Transform3D(1.00503, 0.00879199, -3.69133e-05, -0.00883587, 0.999923, 0.00883653, 0.000114601, -0.00879132, 1.00503, 0, 0, -100)
+transform = Transform3D(1.0171, 0.0289582, 0.000468226, -0.0294669, 0.999161, 0.0294657, 0.00038544, -0.0289594, 1.0171, 0, 0, -100)
 
 [node name="leg1" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.894037, 0.333849, 0.298735, -0.299887, 0.941374, -0.154543, -0.332816, 0.0485804, 0.94174, -62.7591, 90.8254, -39.8402)
+transform = Transform3D(0.948665, 0.229158, 0.217995, -0.215231, 0.972773, -0.0859506, -0.231756, 0.0346191, 0.972158, -62.7591, 90.8254, -39.8402)
 
 [node name="bone2" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.75, 100, -25)
@@ -1649,7 +1650,7 @@ mesh = SubResource("ArrayMesh_7cph0")
 skeleton = NodePath("")
 
 [node name="leg5" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.997645, -0.0685983, 8.16655e-20, 0.0685983, 0.997645, -4.01466e-19, -5.39332e-20, 4.06123e-19, 1, 62.7591, 90.8254, -39.8402)
+transform = Transform3D(0.972027, -0.23487, 1.75063e-18, 0.23487, 0.972027, -5.24432e-18, -4.69925e-19, 5.5088e-18, 1, 62.7591, 90.8254, -39.8402)
 
 [node name="bone6" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.75, 100, -25)
@@ -1676,7 +1677,7 @@ mesh = SubResource("ArrayMesh_xpnmy")
 skeleton = NodePath("")
 
 [node name="leg2" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.857613, 0.045997, 0.512235, -0.0401757, 0.99894, -0.0224372, -0.512724, -0.00133689, 0.858553, -62.7591, 90.8254, 47.6598)
+transform = Transform3D(0.828487, 0.158068, 0.537238, -0.135128, 0.987417, -0.0821389, -0.543461, -0.00454483, 0.839422, -62.7591, 90.8254, 47.6598)
 
 [node name="bone3" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.75, 100, -25)
@@ -1703,7 +1704,7 @@ mesh = SubResource("ArrayMesh_vsfbm")
 skeleton = NodePath("")
 
 [node name="leg6" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.616496, -0.354676, -0.702949, 0.206763, 0.934388, -0.290116, 0.759724, 0.0335113, 0.64938, 62.7591, 90.8254, 47.6598)
+transform = Transform3D(0.70857, -0.244912, -0.661775, 0.160709, 0.969199, -0.186612, 0.687096, 0.0258744, 0.726105, 62.7591, 90.8254, 47.6598)
 
 [node name="bone7" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.75, 100, -25)
@@ -1730,7 +1731,7 @@ mesh = SubResource("ArrayMesh_3kjjc")
 skeleton = NodePath("")
 
 [node name="leg3" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.69158, 0.468277, 0.549939, -0.366579, 0.883582, -0.29138, -0.622363, -8.33273e-05, 0.782729, -62.7591, 90.8254, 128.91)
+transform = Transform3D(0.726004, 0.329669, 0.60352, -0.253565, 0.944097, -0.21068, -0.639235, -7.73072e-05, 0.769011, -62.7591, 90.8254, 128.91)
 
 [node name="bone4" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg3"]
 transform = Transform3D(1, 0, -5.55112e-17, 0, 1, 0, 5.55112e-17, 0, 1, -68.75, 100, -25)
@@ -1757,7 +1758,7 @@ mesh = SubResource("ArrayMesh_av60y")
 skeleton = NodePath("")
 
 [node name="leg7" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.743776, -0.0343051, -0.667547, 0.0345822, 0.99932, -0.0128235, 0.667533, -0.0135474, 0.744456, 62.7591, 90.8254, 128.91)
+transform = Transform3D(0.752354, -0.119309, -0.647864, 0.121737, 0.991705, -0.0412582, 0.647412, -0.0478282, 0.760637, 62.7591, 90.8254, 128.91)
 
 [node name="bone8" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg7"]
 transform = Transform3D(1, 0, 5.55112e-17, 0, 1, 0, -5.55112e-17, 0, 1, 68.75, 100, -25)
@@ -1784,7 +1785,7 @@ mesh = SubResource("ArrayMesh_icglj")
 skeleton = NodePath("")
 
 [node name="leg4" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.452984, 0.0157196, 0.891379, -0.0299288, 0.999549, -0.0024179, -0.891016, -0.0255827, 0.45325, -56.5091, 97.0754, 210.16)
+transform = Transform3D(0.514933, 0.06153, 0.855018, -0.119127, 0.992879, 0.000293094, -0.848912, -0.102007, 0.518596, -56.5091, 97.0754, 210.16)
 
 [node name="bone5" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.75, 100, -25)
@@ -1811,7 +1812,7 @@ mesh = SubResource("ArrayMesh_qbvk6")
 skeleton = NodePath("")
 
 [node name="leg8" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone"]
-transform = Transform3D(0.627789, -0.254959, -0.735443, 0.442102, 0.894435, 0.0673093, 0.640645, -0.367397, 0.674235, 56.5091, 97.0754, 210.16)
+transform = Transform3D(0.627785, -0.131165, -0.767256, 0.212008, 0.977246, 0.00640624, 0.748958, -0.166686, 0.641309, 56.5091, 97.0754, 210.16)
 
 [node name="bone9" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/leg8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.75, 100, -25)
@@ -1841,7 +1842,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9238, 78.7819, -120.937)
 
 [node name="bone12" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10"]
-transform = Transform3D(1, 4.10987e-19, -7.39435e-20, -4.17501e-19, 0.987559, -0.157255, 8.39397e-21, 0.157255, 0.987559, -34.9238, 72.5354, 130.938)
+transform = Transform3D(1, 1.12155e-17, -2.47122e-18, -1.14842e-17, 0.975003, -0.222196, -8.2595e-20, 0.222196, 0.975003, -34.9238, 72.5354, 130.938)
 
 [node name="bone11" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10/bone12"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -10.2688, 191.101)
@@ -1896,10 +1897,10 @@ mesh = SubResource("ArrayMesh_swyv3")
 skeleton = NodePath("")
 
 [node name="head" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10"]
-transform = Transform3D(1, 4.17548e-19, 2.24602e-21, -4.17552e-19, 0.999958, 0.00913725, 1.56933e-21, -0.00913725, 0.999958, -31.25, 43.75, 62.5)
+transform = Transform3D(1, 1.14729e-17, 5.11353e-19, -1.14833e-17, 0.999513, 0.0312046, -1.53095e-19, -0.0312046, 0.999513, -31.25, 43.75, 62.5)
 
 [node name="bone13" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10/head"]
-transform = Transform3D(0.999273, 1.03774e-18, 0.0381148, -1.1462e-18, 1, 2.82369e-18, -0.0381148, -2.86533e-18, 0.999273, -13.5975, -18.75, -31.25)
+transform = Transform3D(0.991235, -1.50241e-17, 0.132106, 1.39164e-17, 1, 9.30815e-18, -0.132106, -7.38813e-18, 0.991235, -13.5975, -18.75, -31.25)
 
 [node name="bone13_1" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10/head/bone13"]
 transform = Transform3D(0.707107, -0.326506, 0.627211, -0.092296, 0.836805, 0.539666, -0.701057, -0.43949, 0.561575, -0.366562, 14.9653, 17.2581)
@@ -1916,7 +1917,7 @@ mesh = SubResource("ArrayMesh_7rvin")
 skeleton = NodePath("")
 
 [node name="bone14" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10/head"]
-transform = Transform3D(0.999273, 7.38345e-20, -0.0381148, -3.46822e-20, 1, 1.02788e-18, 0.0381148, -1.02581e-18, 0.999273, 6.25, -18.75, -31.25)
+transform = Transform3D(0.991235, -3.15043e-19, -0.132106, 1.71412e-18, 1, 1.04768e-17, 0.132106, -1.06114e-17, 0.991235, 6.25, -18.75, -31.25)
 
 [node name="bone14_1" type="Node3D" parent="Sketchfab_model/spider_geo_fbx/Object_2/RootNode/bone/bone10/head/bone14"]
 transform = Transform3D(0.707107, 0.326506, -0.627211, 0.092296, 0.836805, 0.539666, 0.701057, -0.43949, 0.561575, 0.366562, 14.9653, 17.2581)

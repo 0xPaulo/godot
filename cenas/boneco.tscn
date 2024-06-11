@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj4lwobjm0wcm"]
+[gd_scene load_steps=17 format=3 uid="uid://cj4lwobjm0wcm"]
 
 [ext_resource type="Script" path="res://scripts/boneco_script.gd" id="1_t0c6b"]
 [ext_resource type="Texture2D" uid="uid://du2n0jg306n35" path="res://blockbench/cruz/cruz_junto_v6_texturizacao_completa_0.png" id="2_vcckl"]
@@ -54,7 +54,7 @@ shadow_mesh = SubResource("ArrayMesh_inboc")
 points = PackedVector3Array(-0.029, 0.57, -0.057, -0.508, 0.267, 0.001, -0.049, 0.57, 0.048, -0.011, -0.811, -0.018, 0.449, 0.375, -0.001, 0.28, 0.01, -0.125, -0.215, 0, -0.07, -0.03, 0.27, 0.06)
 
 [sub_resource type="Animation" id="Animation_u8xhr"]
-length = 0.001
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -159,6 +159,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_bimqo"]
 resource_name = "ataque1"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,10 +167,10 @@ tracks/0/path = NodePath("head/Camera3D/arma/cruz_3d:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.349087, -0.433942, -0.579525), Vector3(0.299, -0.154, -0.58), Vector3(0.299, -0.589, -0.867), Vector3(0.299, -1.024, -0.875), Vector3(0.349087, -0.510519, -0.579525)]
+"values": [Vector3(0.349087, -0.433942, -0.579525), Vector3(0.299, -0.154, -0.58), Vector3(0.299, -0.589, -0.867), Vector3(0.299, -1.024, -0.875)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -178,10 +179,10 @@ tracks/1/path = NodePath("head/Camera3D/arma/cruz_3d:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.11268, 0.220037, 0.0274526), Vector3(-0.113446, 0.00174533, 0.0279253), Vector3(-1.33518, 0.00174533, 0.0279253), Vector3(-2.19039, 0.00174533, 0.0279253), Vector3(-0.302497, 0.220812, -0.014306)]
+"values": [Vector3(-0.11268, 0.220037, 0.0274526), Vector3(-0.113446, 0.00174533, 0.0279253), Vector3(-1.33518, 0.00174533, 0.0279253), Vector3(-2.19039, 0.00174533, 0.0279253)]
 }
 
 [sub_resource type="Animation" id="Animation_6km0a"]
@@ -238,7 +239,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_7f8hu"]
 resource_name = "repouso"
-length = 0.2
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -247,10 +248,78 @@ tracks/0/path = NodePath("head/Camera3D/arma/cruz_3d:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/arma:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.349087, -0.510519, -0.579525), Vector3(0.349087, -0.510519, -0.579525)]
+"values": [Vector3(-6.62238e-09, 0.227003, 0.0757512), Vector3(-6.62238e-09, 0.181586, 0.0757512)]
+}
+
+[sub_resource type="Animation" id="Animation_dun5w"]
+resource_name = "volta-ataque"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/arma/cruz_3d:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.349, -0.811, -0.82), Vector3(0.349, -0.511, -0.58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/arma/cruz_3d:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.21133, 0.218166, 0.111701), Vector3(-0.301942, 0.221657, -0.0139626)]
+}
+
+[sub_resource type="Animation" id="Animation_qt4xa"]
+resource_name = "volta-ataque1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/arma/cruz_3d:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.299, -1.024, -0.875), Vector3(0.349, -0.511, -0.58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/arma/cruz_3d:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.19039, 0.00174533, 0.0279253), Vector3(-0.301942, 0.221657, -0.0139626)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdjx3"]
@@ -259,7 +328,9 @@ _data = {
 "ataque": SubResource("Animation_5p37m"),
 "ataque1": SubResource("Animation_bimqo"),
 "mirar": SubResource("Animation_6km0a"),
-"repouso": SubResource("Animation_7f8hu")
+"repouso": SubResource("Animation_7f8hu"),
+"volta-ataque": SubResource("Animation_dun5w"),
+"volta-ataque1": SubResource("Animation_qt4xa")
 }
 
 [node name="Boneco" type="CharacterBody3D"]
@@ -292,7 +363,7 @@ mesh = SubResource("ArrayMesh_s2nt7")
 skeleton = NodePath("")
 
 [node name="cruz_hitbox" type="Area3D" parent="head/Camera3D/arma/cruz_3d"]
-transform = Transform3D(1, -7.45058e-09, -1.49012e-08, 7.45058e-09, 1, 5.96046e-08, 1.49012e-08, -5.96046e-08, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -2.98023e-08, 1.49012e-08, 1, 2.98023e-08, 4.47035e-08, -2.98023e-08, 1, 0, 0, 0)
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="head/Camera3D/arma/cruz_3d/cruz_hitbox"]
@@ -337,5 +408,6 @@ libraries = {
 }
 playback_default_blend_time = 0.1
 
-[connection signal="child_entered_tree" from="head/Camera3D/arma/cruz_3d/cruz_hitbox" to="." method="_on_cruz_hitbox_child_entered_tree"]
+[connection signal="area_entered" from="head/Camera3D/arma/cruz_3d/cruz_hitbox" to="." method="_on_cruz_hitbox_area_entered"]
+[connection signal="body_entered" from="head/Camera3D/arma/cruz_3d/cruz_hitbox" to="." method="_on_cruz_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

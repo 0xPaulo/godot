@@ -23,6 +23,7 @@ signal player_hit
 
 # Obtém a gravidade das configurações do projeto para sincronização com os nós RigidBody.
 var gravity = 9.8
+var ataque_iniciado = false
 
 
 @onready var head = $head
@@ -36,9 +37,22 @@ func _process(_delta):
 	armaCamera.global_transform = camera.global_transform
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
-	if Input.is_action_just_pressed("ataque"):
+		
+	if not animacao_player.is_playing() and Input.is_action_just_pressed("ataque"):
 		animacao_player.play("ataque1")
-		cruz_hitbox.monitoring = true
+		animacao_player.queue("volta-ataque1")
+		ataque_iniciado = true
+
+	# Se a animação atual for "ataque1", habilita a monitorização da hitbox
+	elif animacao_player.current_animation == "ataque1" and ataque_iniciado:
+			cruz_hitbox.monitoring = true
+			ataque_iniciado = false  # Garante que o ataque só possa ser disparado uma vez até a animação de volta terminar
+
+	# Se a animação atual for "volta-ataque1", desabilita a monitorização da hitbox
+	elif animacao_player.current_animation == "volta-ataque1":
+		cruz_hitbox.monitoring = false
+			
+			
 
 
 func _unhandled_input(event):
@@ -101,10 +115,10 @@ func _headbob(time) -> Vector3:
 	return pos
 
 
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "ataque1":
-		animacao_player.play("RESET")
-		cruz_hitbox.monitoring = false
+#func _on_animation_player_animation_finished(anim_name):
+	#if anim_name == "ataque1":
+		#cruz_hitbox.monitoring = false
+		#animacao_player.play("RESET")
 
 
 func _on_cruz_hitbox_area_entered(area):
@@ -116,3 +130,8 @@ func hit(dir):
 	emit_signal("player_hit")
 	velocity +=dir * HIT_STAGGER
 
+
+
+func _on_cruz_hitbox_body_entered(body):
+		if body.is_in_group("inimigo"):
+			print("hit")

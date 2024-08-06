@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://peud0b50nrjy"]
 
 [ext_resource type="Shader" path="res://shaders/new_shader2.gdshader" id="1_3lpg5"]
-[ext_resource type="Script" path="res://scripts/mundo1.gd" id="1_rch5p"]
+[ext_resource type="Script" path="res://scripts/mundo.cs" id="1_6ck21"]
 [ext_resource type="PackedScene" uid="uid://iyw0uueabgkb" path="res://cenas/map.tscn" id="2_5t76k"]
 [ext_resource type="PackedScene" uid="uid://cj4lwobjm0wcm" path="res://cenas/boneco.tscn" id="2_xyunn"]
 [ext_resource type="PackedScene" uid="uid://doadaqtgfi53h" path="res://cenas/aranha3.tscn" id="6_ynclv"]
@@ -73,7 +73,7 @@ shader_parameter/vignette_intensity = 0.5
 shader_parameter/vignette_opacity = 0.116
 
 [node name="Mundo_1" type="Node3D"]
-script = ExtResource("1_rch5p")
+script = ExtResource("1_6ck21")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_wi7km")

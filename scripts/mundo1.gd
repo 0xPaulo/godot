@@ -1,7 +1,6 @@
 extends Node3D
 
-@onready var hit_rect = $SubViewportContainer/SubViewport/CanvasLayer/UI
-
+@onready var hit_rect = $"SubViewportContainer/SubViewport/CanvasLayer/UI-DAMAGE-HIT"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://b3cyo0o58lsyh"
+path="res://.godot/imported/inca_map2.3.map-73526b726543ec1941c01eef57710951.tres"
+
+[deps]
+
+source_file="res://TrenMaps/autosave/inca_map2.3.map"
+dest_files=["res://.godot/imported/inca_map2.3.map-73526b726543ec1941c01eef57710951.tres"]
+
+[params]
+

@@ -1,0 +1,189 @@
+[gd_scene load_steps=16 format=3 uid="uid://drclliloypb3m"]
+
+[ext_resource type="Script" path="res://scripts/mundo1.gd" id="1_u5m58"]
+[ext_resource type="PackedScene" uid="uid://dcg8tximnu2u0" path="res://cenas/inimigo_teste.tscn" id="2_gdo06"]
+[ext_resource type="Shader" path="res://shaders/new_shader2.gdshader" id="2_turvn"]
+[ext_resource type="PackedScene" uid="uid://iyw0uueabgkb" path="res://cenas/map.tscn" id="3_xeedd"]
+[ext_resource type="PackedScene" uid="uid://dwgq47yoj2sr8" path="res://cenas/cena_cruz_texturized_completa.tscn" id="23_rr6ex"]
+[ext_resource type="PackedScene" uid="uid://cj4lwobjm0wcm" path="res://cenas/boneco.tscn" id="24_acqhe"]
+[ext_resource type="Shader" path="res://shaders/CRT.gdshader" id="24_mnh45"]
+[ext_resource type="PackedScene" uid="uid://doadaqtgfi53h" path="res://cenas/aranha3.tscn" id="25_0tg5u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wi7km"]
+shader = ExtResource("2_turvn")
+shader_parameter/enabled = true
+shader_parameter/dithering = false
+shader_parameter/colors = 16
+shader_parameter/dither_size = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0kwp"]
+shader = ExtResource("24_mnh45")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.364
+shader_parameter/scanlines_width = 0.188
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(426.76, 359.92)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 9.0
+shader_parameter/roll_size = 3.888
+shader_parameter/roll_variation = 0.286
+shader_parameter/distort_intensity = 0.141
+shader_parameter/noise_opacity = 0.031
+shader_parameter/noise_speed = 0.0
+shader_parameter/static_noise_intensity = 0.009
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.25
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_opacity = 0.116
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yeip"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+texture_repeat = false
+grow = true
+grow_amount = 0.881
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh8b4"]
+emission = Color(0.313451, 0.387249, 0.99303, 1)
+grow = true
+grow_amount = 0.294
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cxiaf"]
+sky_top_color = Color(0.00396154, 0.0693006, 0.162151, 1)
+sky_horizon_color = Color(0.608505, 0.624839, 0.648052, 1)
+sky_energy_multiplier = 0.0
+ground_bottom_color = Color(0.430057, 0.430057, 0.430057, 1)
+ground_horizon_color = Color(0.608505, 0.624839, 0.648052, 1)
+
+[sub_resource type="Sky" id="Sky_it83b"]
+sky_material = SubResource("ProceduralSkyMaterial_cxiaf")
+
+[sub_resource type="Environment" id="Environment_82wrf"]
+background_mode = 1
+sky = SubResource("Sky_it83b")
+fog_enabled = true
+fog_light_color = Color(0.410919, 0.490821, 1, 1)
+fog_sky_affect = 0.138
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_u5m58")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_wi7km")
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+
+[node name="shader-crt" type="ColorRect" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+material = SubResource("ShaderMaterial_u0kwp")
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+
+[node name="UI-DAMAGE-HIT" type="Control" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/CanvasLayer/UI-DAMAGE-HIT"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+color = Color(0.619608, 0, 0, 0.0901961)
+
+[node name="Entidades" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="objetos" type="Node3D" parent="SubViewportContainer/SubViewport/Entidades"]
+
+[node name="olho" type="CSGSphere3D" parent="SubViewportContainer/SubViewport/Entidades/objetos"]
+transform = Transform3D(-1, 6.0729e-08, -6.28867e-08, 0, 0.71934, 0.694658, 8.74228e-08, 0.694658, -0.71934, 6.6346, 43.3956, -5.9445)
+cast_shadow = 0
+calculate_tangents = false
+radius = 4.774
+radial_segments = 4
+rings = 4
+smooth_faces = false
+material = SubResource("StandardMaterial3D_3yeip")
+
+[node name="base" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/Entidades/objetos/olho"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14441e-05, -4.25393, 3.47753)
+radius = 9.572
+smooth_faces = false
+material = SubResource("StandardMaterial3D_kh8b4")
+
+[node name="cruz_texturizada" parent="SubViewportContainer/SubViewport/Entidades/objetos" instance=ExtResource("23_rr6ex")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.3653, 1.95653, 43.9878)
+
+[node name="Map" parent="SubViewportContainer/SubViewport/Entidades" instance=ExtResource("3_xeedd")]
+
+[node name="entity_0_worldspawn2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Entidades/Map"]
+collision_layer = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Entidades"]
+environment = SubResource("Environment_82wrf")
+
+[node name="luzes" type="Node3D" parent="SubViewportContainer/SubViewport/Entidades/WorldEnvironment"]
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Entidades/WorldEnvironment/luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0789, 8.59648, 66.5318)
+layers = 3
+omni_range = 27.54
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Entidades/WorldEnvironment/luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349566, 8.22077, 8.44435)
+layers = 3
+omni_range = 27.54
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Entidades/WorldEnvironment/luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 48.3428, -4.73816)
+layers = 3
+light_color = Color(0.366588, 0.428132, 1, 1)
+light_energy = 4.626
+omni_range = 74.51
+omni_attenuation = 6.54158e-05
+
+[node name="Boneco" parent="SubViewportContainer/SubViewport/Entidades" instance=ExtResource("24_acqhe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243123, 2.11643, 3.69039)
+
+[node name="MeshInstance3D" parent="SubViewportContainer/SubViewport/Entidades/Boneco" index="0"]
+visible = true
+
+[node name="head" parent="SubViewportContainer/SubViewport/Entidades/Boneco" index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.63876, -0.0516624)
+
+[node name="Camera3D" parent="SubViewportContainer/SubViewport/Entidades/Boneco/head" index="0"]
+fov = 56.4
+far = 250.0
+
+[node name="cruz_3d" parent="SubViewportContainer/SubViewport/Entidades/Boneco/head/Camera3D/arma" index="0"]
+transform = Transform3D(0.976554, -0.0512829, 0.209077, -0.013656, 0.954499, 0.297905, -0.214841, -0.293775, 0.931418, 0.349087, -0.510519, -0.579525)
+
+[node name="inimigos" type="Node3D" parent="SubViewportContainer/SubViewport/Entidades"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70108, 0.0257175, 15.0641)
+
+[node name="aranha" parent="SubViewportContainer/SubViewport/Entidades/inimigos" instance=ExtResource("25_0tg5u")]
+transform = Transform3D(0.43337, 0, 0.24938, 0, 0.5, 0, -0.24938, 0, 0.43337, 0.082478, 1, 1.81479)
+player_path = NodePath("../../Boneco")
+
+[node name="inimigo_teste" parent="SubViewportContainer/SubViewport/Entidades/inimigos" instance=ExtResource("2_gdo06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06878, 2.42704, 4.3688)
+
+[connection signal="player_hit" from="SubViewportContainer/SubViewport/Entidades/Boneco" to="." method="_on_boneco_player_hit"]
+
+[editable path="SubViewportContainer/SubViewport/Entidades/Boneco"]

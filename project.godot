@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="king_C"
-run/main_scene="res://cenas/mainTeste.tscn"
+run/main_scene="res://cenas/inca_map.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
